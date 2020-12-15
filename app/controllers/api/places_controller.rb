@@ -5,4 +5,13 @@ class Api::PlacesController < ApplicationController
     render 'index.json.jb'
   end
 
+  def create
+    @place = Place.new(
+      name: params[:name],
+      address: params[:address]
+    )
+    @place.save
+    render 'show.json.jb'
+  end
+
 end
